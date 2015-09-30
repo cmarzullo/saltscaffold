@@ -114,12 +114,12 @@ def get_file_path(root_dir, sub_dir, filename):
 
 def get_init_text(formula_name):
     # TODO switch to a jinja template
-    init_text = """
-        # -*- coding: utf-8 -*-
+    init_text = """        # -*- coding: utf-8 -*-
         # vim: ft=sls
         # Init {formula_name}
         {{%- from "{formula_name}/map.jinja" import {formula_name} with context %}}
 
+        {{# Below is an example of having a toggle for the state #}}
         {{% if {formula_name}.enabled %}}
         include:
           - {formula_name}.install
@@ -135,8 +135,7 @@ def get_init_text(formula_name):
 
 def get_install_text(formula_name):
     # TODO switch to a jinja template
-    install_text = """
-        # -*- coding: utf-8 -*-
+    install_text = """        # -*- coding: utf-8 -*-
         # vim: ft=sls
         # How to install {formula_name}
         {{%- from "{formula_name}/map.jinja" import {formula_name} with context %}}
@@ -150,15 +149,14 @@ def get_install_text(formula_name):
 
 def get_config_text(formula_name):
     # TODO switch to a jinja template
-    config_text = """
-        # -*- coding: utf-8 -*-
+    config_text = """        # -*- coding: utf-8 -*-
         # vim: ft=sls
         # How to configure {formula_name}
         {{%- from "{formula_name}/map.jinja" import {formula_name} with context %}}
 
         {formula_name}_config:
           file.managed:
-            - name: '/tmp/{formula_name}.conf
+            - name: '/tmp/{formula_name}.conf'
             - source: salt://{formula_name}/files/{formula_name}_options.conf.j2
             - user: root
             - group : root
@@ -171,8 +169,7 @@ def get_config_text(formula_name):
 
 def get_service_text(formula_name):
     # TODO switch to a jinja template
-    service_text = """
-        # -*- coding: utf-8 -*-
+    service_text = """        # -*- coding: utf-8 -*-
         # vim: ft=sls
         # Manage service for service {formula_name}
         {{%- from "{formula_name}/map.jinja" import {formula_name} with context %}}
@@ -192,8 +189,7 @@ def get_service_text(formula_name):
 
 def get_defaults_text(formula_name):
     # TODO switch to a jinja template
-    defaults_text = """
-        # -*- coding: utf-8 -*-
+    defaults_text = """        # -*- coding: utf-8 -*-
         # vim: ft=yaml
         # Defaults for {formula_name}
 
@@ -206,8 +202,7 @@ def get_defaults_text(formula_name):
 
 def get_mapjinja_text(formula_name):
     # TODO switch to a jinja template
-    mapjinja_text = """
-        # -*- coding: utf-8 -*-
+    mapjinja_text = """        # -*- coding: utf-8 -*-
         # vim: ft=jinja
         # This file handles the merging of pillar data with the data from defaults
 
@@ -243,8 +238,7 @@ def get_mapjinja_text(formula_name):
 
 def get_pillarcustom_text(formula_name):
     # TODO switch to a jinja template
-    pillarcustom_text = """
-        # -*- coding: utf-8 -*-
+    pillarcustom_text = """        # -*- coding: utf-8 -*-
         # vim: ft=yaml
         # Custom Pillar Data for {formula_name}
 
@@ -256,8 +250,7 @@ def get_pillarcustom_text(formula_name):
 
 def get_kitchenyml_text(formula_name):
     # TODO switch to a jinja template
-    kitchenyml_text = """
-        # -*- coding: utf-8 -*-
+    kitchenyml_text = """        # -*- coding: utf-8 -*-
         # vim: ft=yaml
         ---
         driver:
@@ -302,8 +295,7 @@ def get_gitignore_text(formula_name):
     return dedent(gitignore_text)
 
 def get_readme_text(formula_name):
-    readme_text = """
-        # {formula_name}-formula
+    readme_text = """        # {formula_name}-formula
         
         Purpose of formula. Include a short description of what the formula does.
         
