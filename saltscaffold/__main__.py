@@ -7,6 +7,7 @@ import os
 
 parser = argparse.ArgumentParser(description='Scaffolding tool for salt formulas')
 parser.add_argument('-p','--project',required=True, nargs=1, help='The name of the formula to create')
+parser.add_argument('-d','--dir',required=False, nargs=1, help='The directory in which to create the salt formula')
 
 args = parser.parse_args()
 
