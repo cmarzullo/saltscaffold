@@ -17,6 +17,7 @@ def create_files(formula_name, root_dir):
     write_init(formula_name, root_dir)
     write_install(formula_name, root_dir)
     write_config(formula_name, root_dir)
+    write_file(formula_name, root_dir)
     write_service(formula_name, root_dir)
 
 def write_readme(formula_name, root_dir):
@@ -53,7 +54,7 @@ def write_pillarcustom(formula_name, root_dir):
 
 def write_defaults(formula_name, root_dir):
     """Writes sample defaults.yml"""
-    defaults_path = get_file_path(root_dir, formula_name, 'defaults.yml')
+    defaults_path = get_file_path(root_dir, formula_name, 'defaults.yaml')
     defaults_content = get_defaults_text(formula_name)
     with open(defaults_path, "w") as defaults_file:
         defaults_file.write(defaults_content)
@@ -90,6 +91,14 @@ def write_config(formula_name, root_dir):
     with open(config_path, "w") as config_file:
         config_file.write(config_content)
     print_file(config_path, " +++")
+
+def write_template(formula_name, root_dir):
+    """Writes sample jinja template to files/<formula_name>.conf.j2"""
+    template_path = get_file_path(root_dir, formula_name + '/files', formula_name + '_options.conf.j2')
+    template_content = get_template_text(formula_name)
+    with open(template_path, "w") as template_file:
+        template_file.write(template_content)
+    print_file(template_path, " +++")
 
 def write_service(formula_name, root_dir):
     """Writes sample service.sls"""
@@ -166,6 +175,14 @@ def get_config_text(formula_name):
         """.format(formula_name=formula_name)
 
     return dedent(config_text)
+
+def get_template_text(formula_name):
+    # TODO switch to a jinja template
+    template_text = """        # {formula_name} configuration file
+        mystring={{{{ local_string }}}}
+        """.format(formula_name=formula_name)
+
+    return dedent(template_text)
 
 def get_service_text(formula_name):
     # TODO switch to a jinja template

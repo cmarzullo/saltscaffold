@@ -44,6 +44,7 @@ def test_create_files():
     formulafiles.write_init(formula_name, formula_root)
     formulafiles.write_install(formula_name, formula_root)
     formulafiles.write_config(formula_name, formula_root)
+    formulafiles.write_template(formula_name, formula_root)
     formulafiles.write_service(formula_name, formula_root)
     formulafiles.write_mapjinja(formula_name, formula_root)
 
@@ -51,11 +52,12 @@ def test_create_files():
     assert_file_exists(formula_root, None, '.gitignore')
     assert_file_exists(formula_root, None, '.kitchen.yml')
     assert_file_exists(formula_root, None, 'pillar-custom.sls')
-    assert_file_exists(formula_root, formula_name, 'defaults.yml')
+    assert_file_exists(formula_root, formula_name, 'defaults.yaml')
     assert_file_exists(formula_root, formula_name, 'map.jinja')
     assert_file_exists(formula_root, formula_name, 'init.sls')
     assert_file_exists(formula_root, formula_name, 'install.sls')
     assert_file_exists(formula_root, formula_name, 'config.sls')
+    assert_file_exists(formula_root, formula_name + '/files', 'salzburg_options.conf.j2')
     assert_file_exists(formula_root, formula_name, 'service.sls')
 
 def assert_file_exists(target_dir, sub_dir, filename):
