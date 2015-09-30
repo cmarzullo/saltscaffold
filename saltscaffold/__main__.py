@@ -12,13 +12,13 @@ args = parser.parse_args()
 
 cur_dir = os.getcwd()
 
-if args.dir != None
+if args.dir != None:
     cur_dir = args.dir[0]
 
 def main():
     try:
         formulafolders.create_folders(args.project[0], cur_dir)
-        #formulafiles.create_files(args.project[0], cur_dir)
+        formulafiles.create_files(args.project[0], cur_dir)
     except IOError as e:
         print(e.strerror)
 
