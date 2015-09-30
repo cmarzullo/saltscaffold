@@ -14,7 +14,13 @@ config = {
     'install_requires': ['nose'],
     'packages': ['saltscaffold'],
     'scripts': [],
-    'name': 'Saltscaffold'
+    'name': 'Saltscaffold',
+    'entry_points': {
+        'console_scripts': [
+            'saltscaffold = saltscaffold.__main__:main',
+        ]
+    }
+
 }
 
 setup(**config)
