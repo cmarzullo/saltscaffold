@@ -12,7 +12,7 @@ def setup():
 
 def teardown():
     print("attempting to tear down: {dir}".format(dir=target_dir))
-#    shutil.rmtree(target_dir)
+    shutil.rmtree(target_dir)
 
 def test_create_folder_path():
     sub_dir = "magicdir"
