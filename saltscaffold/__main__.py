@@ -1,8 +1,7 @@
 """Creates a salt formula skeleton of directories"""
 
 import argparse
-#from saltscaffold import formulafolders, formulafiles
-from saltscaffold import formulafolders
+from saltscaffold import formulafolders, formulafiles
 import os
 
 parser = argparse.ArgumentParser(description='Scaffolding tool for salt formulas')
