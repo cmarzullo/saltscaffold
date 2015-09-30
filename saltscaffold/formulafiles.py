@@ -17,7 +17,7 @@ def create_files(formula_name, root_dir):
     write_init(formula_name, root_dir)
     write_install(formula_name, root_dir)
     write_config(formula_name, root_dir)
-    write_file(formula_name, root_dir)
+    write_template(formula_name, root_dir)
     write_service(formula_name, root_dir)
 
 def write_readme(formula_name, root_dir):
