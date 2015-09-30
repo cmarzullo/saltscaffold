@@ -211,7 +211,7 @@ def get_defaults_text(formula_name):
         # Defaults for {formula_name}
 
         {formula_name}:
-          enable: true
+          enabled: true
           pkg: screen
         """.format(formula_name=formula_name)
 
@@ -260,7 +260,7 @@ def get_pillarcustom_text(formula_name):
         # Custom Pillar Data for {formula_name}
 
         {formula_name}:
-          enable: false
+          enabled: false
         """.format(formula_name=formula_name)
 
     return dedent(pillarcustom_text)
