@@ -37,6 +37,7 @@ def test_create_files():
     
     # write out all the files in the root directory
     formulafiles.write_readme(formula_name, formula_root)
+    formulafiles.write_license(formula_name, formula_root)
     formulafiles.write_gitignore(formula_name, formula_root)
     formulafiles.write_kitchenyml(formula_name, formula_root)
     formulafiles.write_pillarcustom(formula_name, formula_root)
@@ -49,6 +50,7 @@ def test_create_files():
     formulafiles.write_mapjinja(formula_name, formula_root)
 
     assert_file_exists(formula_root, None, 'README.md')
+    assert_file_exists(formula_root, None, 'LICENSE.txt')
     assert_file_exists(formula_root, None, '.gitignore')
     assert_file_exists(formula_root, None, '.kitchen.yml')
     assert_file_exists(formula_root, None, 'pillar-custom.sls')

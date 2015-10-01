@@ -9,6 +9,7 @@ def create_files(formula_name, root_dir):
     root_dir = formulafolders.create_path(root_dir, formula_name + '-formula')
 
     write_readme(formula_name, root_dir)
+    write_license(formula_name, root_dir)
     write_gitignore(formula_name, root_dir)
     write_kitchenyml(formula_name, root_dir)
     write_pillarcustom(formula_name, root_dir)
@@ -27,6 +28,14 @@ def write_readme(formula_name, root_dir):
     with open(readme_path, "w") as readme_file:
         readme_file.write(readme_content)
     print_file(readme_path, " +++")
+
+def write_license(formula_name, root_dir):
+    """Writes sample LICENSE.txt"""
+    license_path = get_file_path(root_dir, None, 'LICENSE.txt')
+    license_content = get_readme_text(formula_name)
+    with open(license_path, "w") as license_file:
+        license_file.write(license_content)
+    print_file(license_path, " +++")
 
 def write_gitignore(formula_name, root_dir):
     """Writes sample .gitignore"""
@@ -311,6 +320,12 @@ def get_gitignore_text(formula_name):
         .DS_store
         """
     return dedent(gitignore_text)
+
+def get_license_text(formula_name):
+    license_text = """
+        Copyright (c) 2014 Linode
+        """
+    return dedent(license_text)
 
 def get_readme_text(formula_name):
     readme_text = """        # {formula_name}-formula
