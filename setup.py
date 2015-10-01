@@ -7,10 +7,10 @@ except ImportError:
 config = {
     'description': 'sets up files and directories for a new salt formula',
     'author': 'Christopher Marzullo',
-    'url': 'URL to get it at.',
-    'download_url': 'Where to download it.',
+    'url': 'https://bits.linode.com/cmarzullo/saltscaffold',
+    'download_url': 'https://bits.linode.com/cmarzullo/saltscaffold/releases/latest',
     'author_email': 'cmarzullo@linode.com',
-    'version': '0.1',
+    'version': '0.2',
     'install_requires': ['nose'],
     'packages': ['saltscaffold'],
     'scripts': [],
