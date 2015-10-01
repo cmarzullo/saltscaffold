@@ -54,7 +54,7 @@ def write_pillarcustom(formula_name, root_dir):
 
 def write_defaults(formula_name, root_dir):
     """Writes sample defaults.yml"""
-    defaults_path = get_file_path(root_dir, formula_name, 'defaults.yaml')
+    defaults_path = get_file_path(root_dir, formula_name, 'defaults.yml')
     defaults_content = get_defaults_text(formula_name)
     with open(defaults_path, "w") as defaults_file:
         defaults_file.write(defaults_content)
@@ -223,12 +223,12 @@ def get_mapjinja_text(formula_name):
         # vim: ft=jinja
         # This file handles the merging of pillar data with the data from defaults
 
-        {{## Start with  defaults from defaults.yaml ##}}
-        {{% import_yaml '{formula_name}/defaults.yaml' as default_settings %}}
+        {{## Start with  defaults from defaults.yml ##}}
+        {{% import_yaml '{formula_name}/defaults.yml' as default_settings %}}
         
         {{## 
         Setup variable using grains['os_family'] based logic, only add key:values here
-        that differ from whats in defaults.yaml
+        that differ from whats in defaults.yml
         ##}}
         {{% set os_family_map = salt['grains.filter_by']({{
                 'Debian': {{}},
