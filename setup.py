@@ -10,7 +10,7 @@ config = {
     'url': 'https://bits.linode.com/cmarzullo/saltscaffold',
     'download_url': 'https://bits.linode.com/cmarzullo/saltscaffold/releases/latest',
     'author_email': 'cmarzullo@linode.com',
-    'version': '0.2',
+    'version': '1.0',
     'install_requires': ['nose'],
     'packages': ['saltscaffold'],
     'scripts': [],
