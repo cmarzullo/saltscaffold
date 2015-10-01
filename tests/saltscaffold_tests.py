@@ -52,7 +52,7 @@ def test_create_files():
     assert_file_exists(formula_root, None, '.gitignore')
     assert_file_exists(formula_root, None, '.kitchen.yml')
     assert_file_exists(formula_root, None, 'pillar-custom.sls')
-    assert_file_exists(formula_root, formula_name, 'defaults.yaml')
+    assert_file_exists(formula_root, formula_name, 'defaults.yml')
     assert_file_exists(formula_root, formula_name, 'map.jinja')
     assert_file_exists(formula_root, formula_name, 'init.sls')
     assert_file_exists(formula_root, formula_name, 'install.sls')
