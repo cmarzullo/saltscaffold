@@ -223,7 +223,7 @@ def get_mapjinja_text(formula_name):
         # vim: ft=jinja
         # This file handles the merging of pillar data with the data from defaults
 
-        {{## Start with  defaults from defaults.sls ##}}
+        {{## Start with  defaults from defaults.yaml ##}}
         {{% import_yaml '{formula_name}/defaults.yaml' as default_settings %}}
         
         {{## 
