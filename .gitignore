@@ -3,3 +3,4 @@ build/*
 Saltscaffold.egg-info/*
 dist/*
 testcruft
+.DS_store

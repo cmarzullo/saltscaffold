@@ -308,6 +308,7 @@ def get_gitignore_text(formula_name):
         .kitchen
         .kitchen.local.yml
         .vagrant
+        .DS_store
         """
     return dedent(gitignore_text)
 
