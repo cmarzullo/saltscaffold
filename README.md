@@ -48,6 +48,7 @@ You can view the source code on the [Bits Project Page](https://bits.linode.com/
 ## Running saltscaffold
 
 The module gets installed as an executable python script. There aren't many options. You can only choose the name of the formula and an optional directory to create the formula in.
+
 `saltscaffold -p myformula [-d {base directory} ]`
 
 If you don't supply a base directory the formula will be created in your current directory.
