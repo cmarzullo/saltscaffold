@@ -302,7 +302,7 @@ def get_kitchenyml_text(formula_name):
                 - {formula_name}
         
         platforms:
-          - name: bento/debian-7.8
+          - name: bento/debian-8.2
         
         suites:
           - name: default
@@ -341,7 +341,7 @@ def get_kitchenciyml_text(formula_name):
             driver:
               flavor: 1024
               data_center: Dallas
-              kernel: 4.0.2-x86_64-linode56
+              kernel: 4.4.0-x86_64-linode56
               image: Debian 8.1
         
         suites:
