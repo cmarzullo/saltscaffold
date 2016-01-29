@@ -12,6 +12,7 @@ def create_files(formula_name, root_dir):
     write_license(formula_name, root_dir)
     write_gitignore(formula_name, root_dir)
     write_kitchenyml(formula_name, root_dir)
+    write_kitchenciyml(formula_name, root_dir)
     write_pillarcustom(formula_name, root_dir)
     write_defaults(formula_name, root_dir)
     write_mapjinja(formula_name, root_dir)
@@ -46,12 +47,20 @@ def write_gitignore(formula_name, root_dir):
     print_file(gitignore_path, " +++")
 
 def write_kitchenyml(formula_name, root_dir):
-    """Writes sample .kitchenyml"""
+    """Writes sample .kitchen.yml"""
     kitchenyml_path = get_file_path(root_dir, None, '.kitchen.yml')
     kitchenyml_content = get_kitchenyml_text(formula_name)
     with open(kitchenyml_path, "w") as kitchenyml_file:
         kitchenyml_file.write(kitchenyml_content)
     print_file(kitchenyml_path, " +++")
+
+def write_kitchenciyml(formula_name, root_dir):
+    """Writes sample .kitchen-ci.yml"""
+    kitchenciyml_path = get_file_path(root_dir, None, '.kitchen-ci.yml')
+    kitchenciyml_content = get_kitchenciyml_text(formula_name)
+    with open(kitchenciyml_path, "w") as kitchenciyml_file:
+        kitchenciyml_file.write(kitchenciyml_content)
+    print_file(kitchenciyml_path, " +++")
 
 def write_pillarcustom(formula_name, root_dir):
     """Writes sample pillar-custom.sls"""
@@ -286,7 +295,6 @@ def get_kitchenyml_text(formula_name):
 
         provisioner:
           name: salt_solo
-          salt_bootstrap_options: -P
           formula: {formula_name}
           state_top:
             base:
@@ -294,7 +302,7 @@ def get_kitchenyml_text(formula_name):
                 - {formula_name}
         
         platforms:
-          - name: bento/debian-7.8
+          - name: bento/debian-8.2
         
         suites:
           - name: default
@@ -311,6 +319,46 @@ def get_kitchenyml_text(formula_name):
         """.format(formula_name=formula_name)
 
     return dedent(kitchenyml_text)
+
+def get_kitchenciyml_text(formula_name):
+    # TODO switch to a jinja template
+    kitchenciyml_text = """        # -*- coding: utf-8 -*-
+        # vim: ft=yaml
+        ---
+        driver:
+          name: linode
+
+        provisioner:
+          name: salt_solo
+          formula: {formula_name}
+          state_top:
+            base:
+              "*":
+                - {formula_name}
+        
+        platforms:
+          - name: debian_jessie
+            driver:
+              flavor: 1024
+              data_center: Dallas
+              kernel: 4.4.0-x86_64-linode56
+              image: Debian 8.1
+        
+        suites:
+          - name: default
+        
+          - name: custom
+            provisioner:
+              pillars-from-files:
+                {formula_name}.sls: pillar-custom.sls
+              pillars:
+                top.sls:
+                  base:
+                    "*":
+                      - {formula_name}
+        """.format(formula_name=formula_name)
+
+    return dedent(kitchenciyml_text)
 
 def get_gitignore_text(formula_name):
     gitignore_text = """
