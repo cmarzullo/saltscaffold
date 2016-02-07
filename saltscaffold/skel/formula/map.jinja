@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+# This file handles the merging of pillar data with the data from defaults
+
+{# Start with  defaults from defaults.yml #}
+{% import_yaml '${formula_name}/defaults.yml' as default_settings %}
+
+{#
+Setup variable using grains['os_family'] based logic, only add key:values here
+that differ from whats in defaults.yml
+#}
+{% set os_family_map = salt['grains.filter_by']({
+        'Debian': {},
+        'Suse': {},
+        'Arch': {},
+        'RedHat': {},
+  }
+  , grain="os_family"
+  , merge=salt['pillar.get']('${formula_name}:lookup'))
+${'%}'}
+
+{# Merge the flavor_map to the default settings #}
+{% do default_settings.${formula_name}.update(os_family_map) %}
+
+{# Merge in template:lookup pillar #}
+{% set ${formula_name} = salt['pillar.get'](
+        '${formula_name}',
+        default=default_settings.${formula_name},
+        merge=True
+    )
+${'%}'}

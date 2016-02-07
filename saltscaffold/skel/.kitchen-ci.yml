@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+driver:
+  name: linode
+
+provisioner:
+  name: salt_solo
+  formula: ${formula_name}
+  state_top:
+    base:
+      "*":
+        - ${formula_name}
+
+platforms:
+  - name: debian_jessie
+    driver:
+      flavor: 1024
+      data_center: Dallas
+      kernel: 4.4.0-x86_64-linode56
+      image: Debian 8.1
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        ${formula_name}.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - ${formula_name}

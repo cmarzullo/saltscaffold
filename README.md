@@ -5,14 +5,16 @@ This python module creates a new directory structure for salt formulas with the 
 * README.md with sample content
 * state files that mimic the package / file / service pattern.
 * .kitchen.yml with content to drive test-kitchen
+* .kitchen-ci.yml with content to drive test-kitchen with alternate settings
 * custom-pillar content to show pillar overrides
 * defaults.yml content with default values
 * map.jinja show how to have grains based overrides and merge defaults with custom pillars
 * example of toggle feature
 * The resulting formula will be testable with test-kitchen
+* serverspec test to used with kitchen verify
 
 ## Folder and File Structure
-Each salt formula you scaffold will create the following folder structure:
+Each salt formula that you scaffold will create the following folder structure:
 ```
 [formula_name]/
 [formula_name]/README.md
@@ -25,8 +27,10 @@ Each salt formula you scaffold will create the following folder structure:
 [formula_name]/[formula_name]/config.sls
 [formula_name]/[formula_name]/service.sls
 [formula_name]/[formula_name]/files/
-[formula_name]/[formula_name]/files/[formula_name]_options.conf.j2
+[formula_name]/[formula_name]/files/config.conf
+[formula_name]/test/integration/default/serverspec/_spec.rb
 ```
+It's expected you'll modify and rename these as you need.
 
 ## Installing saltscaffold
 
@@ -55,4 +59,13 @@ If you don't supply a base directory the formula will be created in your current
 
 ## Contribution
 
-Pull requests are welcome! The code is pretty ugly for generating the templates and could certainly use better reuse.
+Pull requests are welcome!
+
+### Templating
+
+It's kinda wierd to have to write jinja looking files with jinja. So I switched to the mako templating engine. 
+
+### Running Tests
+
+There are tests written. Make sure they pass. You can run tests using `nosetests -v`
+There's no test for it, but make sure you can do a `kitchen verify`  with the output.

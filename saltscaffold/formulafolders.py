@@ -19,8 +19,9 @@ def create_folders(formula_name, current_directory):
     else:
         make_folder(root_dir) # create the formula root directory
 
-    # TODO include testing/integration
-    dirnames = (formula_name, formula_name + '/files')
+    dirnames = (formula_name, 
+                formula_name + '/files',
+                'test/integration/default/serverspec')
 
     # create the rest of the directories needed
     for item in dirnames:
@@ -29,7 +30,7 @@ def create_folders(formula_name, current_directory):
 
 def make_folder(path, prefix=''):
     """Creates the directory and print message"""
-    os.mkdir(path)
+    os.makedirs(path)
 
     if os.path.exists(path) is False: # if we can't make directory
         err_msg = 'Unable to create root direcotry {path_}. Unknown error!'.format(path_=path)

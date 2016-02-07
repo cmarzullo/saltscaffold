@@ -24,43 +24,47 @@ def test_create_folders():
     formula_name = "waller"
     formulafolders.create_folders(formula_name, target_dir) # Create the formula folders
     
-    assert_folder_exists(target_dir, formula_name + '-formula') # testcruft/waller-formula exists
-    formula_root = os.path.join(target_dir, formula_name + '-formula')
+    assert_folder_exists(target_dir, formula_name + "-formula") # testcruft/waller-formula exists
+    formula_root = os.path.join(target_dir, formula_name + "-formula")
    
     assert_folder_exists(formula_root, formula_name)            # testcruft/waller-formula/waller exists
-    assert_folder_exists(formula_root, formula_name + '/files') # testcruft/waller-formula/waller exists
+    assert_folder_exists(formula_root, formula_name + "/files") # testcruft/waller-formula/waller exists
 
 def test_create_files():
     formula_name = "salzburg"
     formulafolders.create_folders(formula_name, target_dir) # Create the formula folders
-    formula_root = formulafolders.create_path(target_dir, formula_name + '-formula')
+    formula_root = formulafolders.create_path(target_dir, formula_name + "-formula")
     
     # write out all the files in the root directory
-    formulafiles.write_readme(formula_name, formula_root)
-    formulafiles.write_license(formula_name, formula_root)
-    formulafiles.write_gitignore(formula_name, formula_root)
-    formulafiles.write_kitchenyml(formula_name, formula_root)
-    formulafiles.write_pillarcustom(formula_name, formula_root)
-    formulafiles.write_defaults(formula_name, formula_root)
-    formulafiles.write_init(formula_name, formula_root)
-    formulafiles.write_install(formula_name, formula_root)
-    formulafiles.write_config(formula_name, formula_root)
-    formulafiles.write_template(formula_name, formula_root)
-    formulafiles.write_service(formula_name, formula_root)
-    formulafiles.write_mapjinja(formula_name, formula_root)
+    formulafiles.write_file(formula_name, formula_root, None, "README.md", " +++")
+    formulafiles.write_file(formula_name, formula_root, None, "LICENSE.txt", " +++")
+    formulafiles.write_file(formula_name, formula_root, None, ".gitignore", " +++")
+    formulafiles.write_file(formula_name, formula_root, None, ".kitchen.yml", " +++")
+    formulafiles.write_file(formula_name, formula_root, None, ".kitchen-ci.yml", " +++")
+    formulafiles.write_file(formula_name, formula_root, None, "pillar-custom.sls", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "defaults.yml", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "map.jinja", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "init.sls", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "install.sls", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "config.sls", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula", "service.sls", " +++")
+    formulafiles.write_file(formula_name, formula_root, "formula/files", "config.conf", " +++")
+    formulafiles.write_file(formula_name, formula_root, "test/integration/default/serverspec", "_spec.rb", " +++")
 
-    assert_file_exists(formula_root, None, 'README.md')
-    assert_file_exists(formula_root, None, 'LICENSE.txt')
-    assert_file_exists(formula_root, None, '.gitignore')
-    assert_file_exists(formula_root, None, '.kitchen.yml')
-    assert_file_exists(formula_root, None, 'pillar-custom.sls')
-    assert_file_exists(formula_root, formula_name, 'defaults.yml')
-    assert_file_exists(formula_root, formula_name, 'map.jinja')
-    assert_file_exists(formula_root, formula_name, 'init.sls')
-    assert_file_exists(formula_root, formula_name, 'install.sls')
-    assert_file_exists(formula_root, formula_name, 'config.sls')
-    assert_file_exists(formula_root, formula_name + '/files', 'salzburg_options.conf.j2')
-    assert_file_exists(formula_root, formula_name, 'service.sls')
+    assert_file_exists(formula_root, None, "README.md")
+    assert_file_exists(formula_root, None, "LICENSE.txt")
+    assert_file_exists(formula_root, None, ".gitignore")
+    assert_file_exists(formula_root, None, ".kitchen.yml")
+    assert_file_exists(formula_root, None, "pillar-custom.sls")
+    assert_file_exists(formula_root, formula_name, "defaults.yml")
+    assert_file_exists(formula_root, formula_name, "map.jinja")
+    assert_file_exists(formula_root, formula_name, "init.sls")
+    assert_file_exists(formula_root, formula_name, "install.sls")
+    assert_file_exists(formula_root, formula_name, "config.sls")
+    assert_file_exists(formula_root, formula_name, "service.sls")
+    assert_file_exists(formula_root, formula_name + "/files", "config.conf")
+    #assert_file_exists(formula_root, "test/integration/default/serverspec", formula_name + "_spec.rb")
+    assert_file_exists(formula_root, "test/integration/default/serverspec", "_spec.rb")
 
 def assert_file_exists(target_dir, sub_dir, filename):
     """Tests if a file exists  or not"""
