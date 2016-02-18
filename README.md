@@ -34,7 +34,7 @@ It's expected you'll modify and rename these as you need.
 
 ## Installing saltscaffold
 
-You can view the source code on the [Bits Project Page](https://bits.linode.com/cmarzullo/saltscaffold)
+You can view the source code on the [Github Project Page](https://github.com/cmarzullo/saltsaffold)
 
 ### Install from source
 
