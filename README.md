@@ -38,13 +38,13 @@ You can view the source code on the [Github Project Page](https://github.com/cma
 
 ### Install from source
 
-  1. clone the repo `git clone https://bits.linode.com/cmarzullo/saltscaffold`
+  1. clone the repo `git clone https://github.com/cmarzullo/saltsaffold`
   2. make the packages `cd saltscaffold && python setup.py sdist`
   3. install the package `sudo pip install dist/Saltscaffold-<version>.tar.gz`
 
 ### Install from release
 
-  1. Visit the [Bits Project Page](https://bits.linode.com/cmarzullo/saltscaffold)
+  1. Visit the [Bits Project Page](https://github.com/cmarzullo/saltsaffold)
   2. Click on Releases
   3. Download the latest release
   4. install the package `sudo pip install Saltscaffold-<version>.tar.gz`
