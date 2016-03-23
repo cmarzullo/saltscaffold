@@ -14,11 +14,6 @@ provisioner:
 
 platforms:
   - name: debian_jessie
-    driver:
-      flavor: 1024
-      data_center: Dallas
-      kernel: 4.4.0-x86_64-linode56
-      image: Debian 8.1
 
 suites:
   - name: default

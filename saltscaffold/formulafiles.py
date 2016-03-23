@@ -15,6 +15,7 @@ def create_files(formula_name, formula_root):
     write_file(formula_name, root_dir, None, ".kitchen.yml", " +++")
     write_file(formula_name, root_dir, None, ".kitchen-ci.yml", " +++")
     write_file(formula_name, root_dir, None, "pillar-custom.sls", " +++")
+    write_file(formula_name, root_dir, None, "Gemfile", " +++")
     write_file(formula_name, root_dir, "formula", "defaults.yml", " +++")
     write_file(formula_name, root_dir, "formula", "map.jinja", " +++")
     write_file(formula_name, root_dir, "formula", "init.sls", " +++")

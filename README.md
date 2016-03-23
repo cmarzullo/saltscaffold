@@ -12,6 +12,7 @@ This python module creates a new directory structure for salt formulas with the 
 * example of toggle feature
 * The resulting formula will be testable with test-kitchen
 * serverspec test to used with kitchen verify
+* Gemfile added so one can 'bundle install' inside the formula directory to get the necessary ruby gems
 
 ## Folder and File Structure
 Each salt formula that you scaffold will create the following folder structure:
@@ -19,6 +20,10 @@ Each salt formula that you scaffold will create the following folder structure:
 [formula_name]/
 [formula_name]/README.md
 [formula_name]/pillar-custom.sls
+[formula_name]/Gemfile
+[formula_name]/.kitchen.yml
+[formula_name]/.kitchen-ci.yml
+[formula_name]/LICENSE.txt
 [formula_name]/[formula_name]
 [formula_name]/[formula_name]/defaults.yaml
 [formula_name]/[formula_name]/map.jinja
