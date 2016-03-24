@@ -9,7 +9,7 @@ config = {
     'author': 'Christopher Marzullo',
     'url': 'https://github.com/cmarzullo/saltsaffold',
     'author_email': 'cmarzullo@linode.com',
-    'version': '3.0.1.dev',
+    'version': '3.0.1',
     'install_requires': ['nose','mako'],
     'packages': ['saltscaffold'],
     'package_data': {
