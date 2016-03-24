@@ -9,7 +9,7 @@ config = {
     'author': 'Christopher Marzullo',
     'url': 'https://github.com/cmarzullo/saltsaffold',
     'author_email': 'cmarzullo@linode.com',
-    'version': '3.0_dev',
+    'version': '3.0.1',
     'install_requires': ['nose','mako'],
     'packages': ['saltscaffold'],
     'package_data': {
@@ -20,6 +20,7 @@ config = {
             'skel/.gitignore',
             'skel/.kitchen.yml',
             'skel/.kitchen-ci.yml',
+            'skel/Gemfile',
             'skel/formula/*.sls',
             'skel/formula/map.jinja',
             'skel/formula/defaults.yml',
