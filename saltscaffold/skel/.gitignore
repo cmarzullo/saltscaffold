@@ -3,3 +3,4 @@
 .vagrant
 .DS_store
 *.swp
+*.lock
