@@ -8,7 +8,7 @@ ${formula_name}_config:
     - name: '/tmp/config.conf'
     - source: salt://${formula_name}/files/config.conf
     - user: root
-    - group : root
+    - group: root
     - mode: 0600
     - template: jinja
     - local_string: 'test string please ignore'
