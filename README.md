@@ -34,6 +34,7 @@ Each salt formula that you scaffold will create the following folder structure:
 [formula_name]/[formula_name]/files/
 [formula_name]/[formula_name]/files/config.conf
 [formula_name]/test/integration/default/serverspec/_spec.rb
+[formula_name]/test/mockup/init.sls
 ```
 It's expected you'll modify and rename these as you need.
 

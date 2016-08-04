@@ -4,12 +4,17 @@
 driver:
   name: linode
 
+busser:
+  sudo: false
+
 provisioner:
   name: salt_solo
-  formula: ${formula_name}
+  is_file_root: true
+  sudo: false
   state_top:
     base:
       "*":
+        - test.mockup
         - ${formula_name}
 
 platforms:

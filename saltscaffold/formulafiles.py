@@ -24,6 +24,7 @@ def create_files(formula_name, formula_root):
     write_file(formula_name, root_dir, "formula", "service.sls", " +++")
     write_file(formula_name, root_dir, "formula/files", "config.conf", " +++")
     write_file(formula_name, root_dir, "test/integration/default/serverspec", "_spec.rb", " +++")
+    write_file(formula_name, root_dir, "test/mockup", "init.sls", " +++")
 
 def write_file(formula_name, formula_root, sub_dir, file_name, prefix):
     """Writes sample formula file"""
