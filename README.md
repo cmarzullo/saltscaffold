@@ -40,17 +40,17 @@ It's expected you'll modify and rename these as you need.
 
 ## Installing saltscaffold
 
-You can view the source code on the [Github Project Page](https://github.com/cmarzullo/saltsaffold)
+You can view the source code on the [Github Project Page](https://github.com/cmarzullo/saltscaffold)
 
 ### Install from source
 
-  1. clone the repo `git clone https://github.com/cmarzullo/saltsaffold`
+  1. clone the repo `git clone https://github.com/cmarzullo/saltscaffold`
   2. make the packages `cd saltscaffold && python setup.py sdist`
   3. install the package `sudo pip install dist/Saltscaffold-<version>.tar.gz`
 
 ### Install from release
 
-  1. Visit the [Bits Project Page](https://github.com/cmarzullo/saltsaffold)
+  1. Visit the [Github Project Page](https://github.com/cmarzullo/saltscaffold)
   2. Click on Releases
   3. Download the latest release
   4. install the package `sudo pip install Saltscaffold-<version>.tar.gz`
