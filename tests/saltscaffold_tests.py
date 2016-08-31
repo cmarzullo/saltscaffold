@@ -51,6 +51,7 @@ def test_create_files():
     formulafiles.write_file(formula_name, formula_root, "formula", "service.sls", " +++")
     formulafiles.write_file(formula_name, formula_root, "formula/files", "config.conf", " +++")
     formulafiles.write_file(formula_name, formula_root, "test/integration/default/serverspec", "_spec.rb", " +++")
+    formulafiles.write_file(formula_name, formula_root, "test/mockup", "init.sls", " +++")
 
     assert_file_exists(formula_root, None, "README.md")
     assert_file_exists(formula_root, None, "LICENSE.txt")
@@ -67,6 +68,7 @@ def test_create_files():
     assert_file_exists(formula_root, formula_name + "/files", "config.conf")
     #assert_file_exists(formula_root, "test/integration/default/serverspec", formula_name + "_spec.rb")
     assert_file_exists(formula_root, "test/integration/default/serverspec", "_spec.rb")
+    assert_file_exists(formula_root, "test/mockup", "init.sls")
 
 def assert_file_exists(target_dir, sub_dir, filename):
     """Tests if a file exists  or not"""

@@ -8,14 +8,15 @@ driver:
 
 provisioner:
   name: salt_solo
-  formula: ${formula_name}
+  is_file_root: true
   state_top:
     base:
       "*":
+        - test.mockup
         - ${formula_name}
 
 platforms:
-  - name: bento/debian-8.2
+  - name: bento/debian-8.4
 
 suites:
   - name: default

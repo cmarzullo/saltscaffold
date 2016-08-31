@@ -21,7 +21,8 @@ def create_folders(formula_name, current_directory):
 
     dirnames = (formula_name, 
                 formula_name + '/files',
-                'test/integration/default/serverspec')
+                'test/integration/default/serverspec',
+                'test/mockup/files')
 
     # create the rest of the directories needed
     for item in dirnames:
