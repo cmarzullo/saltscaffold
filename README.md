@@ -48,13 +48,6 @@ You can view the source code on the [Github Project Page](https://github.com/cma
   2. make the packages `cd saltscaffold && python setup.py sdist`
   3. install the package `sudo pip install dist/Saltscaffold-<version>.tar.gz`
 
-### Install from release
-
-  1. Visit the [Github Project Page](https://github.com/cmarzullo/saltscaffold)
-  2. Click on Releases
-  3. Download the latest release
-  4. install the package `sudo pip install Saltscaffold-<version>.tar.gz`
-
 ## Running saltscaffold
 
 The module gets installed as an executable python script. There aren't many options. You can only choose the name of the formula and an optional directory to create the formula in.
