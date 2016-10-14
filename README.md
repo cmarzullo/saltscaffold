@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cmarzullo/saltscaffold.svg?branch=master)](https://travis-ci.org/cmarzullo/saltscaffold)
 # saltscaffold
 
 This python module creates a new directory structure for salt formulas with the following features:
