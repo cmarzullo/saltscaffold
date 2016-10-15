@@ -5,7 +5,7 @@ install:
   - pip install .
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get install -y pandoc
   - pip install pypandoc 
 script: nosetests
 deploy:
