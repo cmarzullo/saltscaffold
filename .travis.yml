@@ -1,6 +1,15 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 install:
-  - pip install .
+- pip install .
 script: nosetests
+deploy:
+  provider: pypi
+  user: cmarzullo
+  password:
+    secure: FBlh2haqmeobEpb1LkV8xzdbRvwVIiLYLBX8PAvTAHfs9mBed0lJgKtzatQeomfl+2QvWQvuo3gY8Vu2PbOLg6CcF4k1Qxgv7dFpPjmKoI+BqJgICTnTSU2M+S3lM2JhBf95hqeA1gs1cfIx8klHwDuRkpapbnmdi+uZmArcD3WGtv1AI/wAKiftxTiwlqkY8BHoK9Lk/3/RqRAKbHJwd6FQQ+8pgOqTSTQby1RBqWw4b4t02tCJgDA+D/R4AnXelTkgz70cPum1yH5FLl5sAUX07XU7xtoAxNHgtD9prYtxnHue/5fPxp4X0Fusxv9YZHI75d3UPQPc6ACcyeUiyneIRLMV3iiKQsSwuYrDIcGTymxgDsgchHhdQ75x7iNkmIIWBii5QQmoYJqpHJ6ERXPgVhscJFY+L7jE2Enfs9SqnXdpze/WJYA4gNzxZ/gZcctdpt/EETQnZnmfuANRFS5eEtoJhck2nq2sYKmCN04SF/BV/Z5sGLAWWfjEyIrRvC/gtsIaKTry1Rg3JxWR7+gMEPzDaplLumbIOS0l2VvrXFQ+UN7eTOD+oiC+kANQX9wpOgT2m7roQehkZZH2gOFDcLlUcZL/fFWsVpt1MT2lWBKpUcpvkXJKErEgcjREu8jB9fKR7cXZ7tOszYUwDZLBihFF06Rn8y6H4j05sWw=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: cmarzullo/saltscaffold
