@@ -1,8 +1,10 @@
 language: python
 python:
-- '2.7'
+  - '2.7'
 install:
-- pip install .
+  - pip install .
+before_install:
+  - pip install pypandoc 
 script: nosetests
 deploy:
   provider: pypi
