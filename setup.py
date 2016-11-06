@@ -32,7 +32,8 @@ config = {
             'skel/formula/map.jinja',
             'skel/formula/defaults.yml',
             'skel/formula/files/config.conf',
-            'skel/test/integration/default/serverspec/_spec.rb'
+            'skel/test/integration/default/serverspec/_spec.rb',
+            'skel/test/mockup/*.sls'
             ]
         },
     'scripts': [],
