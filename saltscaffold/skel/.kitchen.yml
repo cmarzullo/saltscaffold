@@ -16,7 +16,7 @@ provisioner:
         - ${formula_name}
 
 platforms:
-  - name: bento/debian-8.4
+  - name: bento/debian-8.7
 
 suites:
   - name: default
